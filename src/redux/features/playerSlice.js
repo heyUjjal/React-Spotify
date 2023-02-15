@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
-    currentState: [],
-    activeSong: [],
+    currentsongs: [],
+    activeSong: {},
     isPlaying: false,
+    currentIndex:0,
 }
 
 const playerSlice = createSlice(
@@ -11,6 +12,11 @@ const playerSlice = createSlice(
         initialState,
         reducers:{
             setActivesong(state,action){
+                  state.activeSong = action.payload?.song;
+                  if(action.payload?.data?.songs){
+                    state.currentsongs = action.payload?.data?.songs; 
+                  }
+                  state.currentIndex = action.payload.index;
                 
             }
         }
