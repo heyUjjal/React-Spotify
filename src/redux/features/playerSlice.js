@@ -22,3 +22,7 @@ const playerSlice = createSlice(
         }
     }
 )
+
+export const {setActivesong} = playerSlice.actions;
+
+export default playerSlice.reducer;

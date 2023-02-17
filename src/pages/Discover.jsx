@@ -1,10 +1,16 @@
 import React from "react";
 import { SongCard, Error, Loader } from '../components'
-import { genres, genres } from '../assets/constants'
-import { usegettopchartQuery } from "../redux/apiServices/shazamcore";
+import { genres } from '../assets/constants'
+import { useGettopsongsQuery } from "../redux/apiServices/shazamcore";
+import { useState } from "react";
 const Discover = () => {
-    const {data, isFetching,error} = usegettopchartQuery();
-    genreTitle = pop;
+    const [playlistId, setPlaylistId] = useState(genres[0].value);
+    const { data, isFetching, error } = useGettopsongsQuery(playlistId);
+    const [genreTitle, setgenreTitle] = useState('Trending Today');
+    console.log(data?.data?.songs)
+    if(isFetching) return <Loader title={genreTitle}/>
+    if(error) return <Error/>
+
     return (
         <>
             <div className="flex flex-col">
@@ -22,7 +28,13 @@ const Discover = () => {
 
                 </div>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-8">
-
+                    
+                    {data?.data?.songs.map((ele) => {
+                        
+                    return(<SongCard key={ele.id}
+                        song={ele.name}
+                        id={ele.id} />)    
+                    })}
 
                 </div>
 

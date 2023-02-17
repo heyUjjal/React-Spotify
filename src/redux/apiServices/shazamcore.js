@@ -1,18 +1,20 @@
-import {createApi, fetchBaseQuerry} from '@reduxjs/toolkit';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const shazamCoreApi = createApi({
     reducerPath:"movieApi",
 
-    baseQuerry: fetchBaseQuerry({baseUrl:"https://saavn.me/"}),
+    baseQuery: fetchBaseQuery({baseUrl:"https://saavn.me/"}),
 
     endpoints: (builder) => ({
         getsong: builder.query({
             query: (id) => `songs?id=${id}`
         }),
-        gettopchart: builder.query({
-            query: () => `modules?language=hindi,english`
-        })
+        gettopsongs: builder.query({
+            query: (id) => `playlists?id=${id}`
+        }),
+
     })
         
     
 })
-export const { useGetsongQuery, usegettopchartQuery} = shazamCoreApi;
+export const { useGetsongQuery} = shazamCoreApi;
+export const { useGettopsongsQuery} = shazamCoreApi;
