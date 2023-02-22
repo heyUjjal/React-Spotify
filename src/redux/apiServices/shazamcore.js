@@ -11,6 +11,9 @@ export const shazamCoreApi = createApi({
         gettopsongs: builder.query({
             query: (id) => `playlists?id=${id}`
         }),
+        getalbumsongs: builder.query({
+            query: (id) => `albums?id=${id}`
+        })
 
     })
         
@@ -18,3 +21,5 @@ export const shazamCoreApi = createApi({
 })
 export const { useGetsongQuery} = shazamCoreApi;
 export const { useGettopsongsQuery} = shazamCoreApi;
+
+export const { useGetalbumsongsQuery} = shazamCoreApi;

@@ -12,17 +12,22 @@ const playerSlice = createSlice(
         initialState,
         reducers:{
             setActivesong(state,action){
-                  state.activeSong = action.payload?.song;
-                  if(action.payload?.data?.songs){
-                    state.currentsongs = action.payload?.data?.songs; 
+                  state.activeSong = action.payload?.data;
+                  if(action.payload?.currentSongs?.data?.songs){
+                    state.currentsongs = action.payload?.currentsongs?.data?.songs; 
                   }
-                  state.currentIndex = action.payload.index;
+                state.currentIndex = action.payload.index;
+                  
                 
+            },
+            playPause(state,action){
+                state.isPlaying = action?.payload;
             }
         }
     }
 )
 
 export const {setActivesong} = playerSlice.actions;
+export const {playPause} = playerSlice.actions;
 
 export default playerSlice.reducer;
