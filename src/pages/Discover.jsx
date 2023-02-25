@@ -13,16 +13,14 @@ const Discover = () => {
 
     if(isFetching) return <Loader title={genreTitle}/>
     if(error) return <Error/>
-    data?.data?.songs.map((ele) =>{
-        return(console.log(ele))
-    })
+    
 
     return (
         <>
             <div className="flex flex-col">
                 <div className="flex justify-between items-center">
-                    <h2 className="text-left font-bold text-white text-3xl capitalize">
-                        discover{genreTitle}
+                    <h2 className="text-left whitespace-nowrap font-bold text-white text-3xl capitalize">
+                        discover    {genreTitle}
 
                     </h2>
                     <select className="bg-black text-gray-300 text-sm rounded-lg outline-none">
