@@ -31,7 +31,7 @@ const Discover = () => {
 
 
                 </div>
-                <div className="flex flex-wrap justify-center sm:justify-start gap-8">
+                <div className="flex flex-wrap justify-center sm:justify-start sm:w-full gap-8">
                     
                     {data?.data?.songs.map((ele) => {
                         
