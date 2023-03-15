@@ -13,6 +13,9 @@ export const shazamCoreApi = createApi({
         }),
         getalbumsongs: builder.query({
             query: (id) => `albums?id=${id}`
+        }),
+        getsonglyrics: builder.query({
+            query: (id) => `lyrics?id=${id}`
         })
 
     })
@@ -21,5 +24,6 @@ export const shazamCoreApi = createApi({
 })
 export const { useGetsongQuery} = shazamCoreApi;
 export const { useGettopsongsQuery} = shazamCoreApi;
+export const { useGetsonglyricsQuery} = shazamCoreApi;
 
 export const { useGetalbumsongsQuery} = shazamCoreApi;
