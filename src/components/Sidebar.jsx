@@ -48,7 +48,7 @@ const Sidebar = () => {
           console.log(MobileMenuOpen)}} />}
 
       </div>
-      {/* side-bar transition implementation on mobile device */}
+      {/* side-bar transition implementation on mobile device   */}
       <div className={`absolute md:hidden ${MobileMenuOpen ? 'left-0' : '-left-full'} top-0 h-screen w-2/3 smooth-transition backdrop-blur-lg bg-gradient-to-tl from-white/10 to-[#937e44] z-10 p-3`}>
         <img src={logo} alt="logo" className="object-contain w-full h-14 " />
         <div>
